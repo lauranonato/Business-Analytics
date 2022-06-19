@@ -1,6 +1,12 @@
 #business analytics
 
-#analise exploratória de skus
+#case: encontrando agrupamentos de skus
+
+#Ha alguns itens com vendas mais variáveis do que outros. Isso afeta diretamente a capacidade de entregar os produtos certos no momento certo. A analise exploratoria a seguir divide em duas dimensões esse problema:
+#Constroi um indicador media de vendas diarias por item, em função da volatilidade de vendas diarias do mesmo. A volatilidade de algo pode ser medida com uma variação de coeficiente, e nesse caso foi construida 
+#pelo desvio padrão das vendas, dividido pela média de vendas deste SKU
+
+
 
 #carregando os dados:
 data=read.table('DATA_2.01_SKU.csv', header = T,sep=',')
@@ -43,7 +49,9 @@ text(0.15,9.7, "Horses", col = "red")
 text(0.65,9, "Wild Bulls", col = "red")
 text(0.8,2, "Crickets", col = "red")
 
-#os Horses são
+#os Horses são SKUs com altas vendas, baixa variabilidade e confiaveis em relação ao comportamento das vendas
+# os Wild Bulls são os skus com altas vendas, alta variabilidade, mas com periodo de vendas menos padronizado.
+#e os Crickets são os skus com baixa venda mas o periodo de venda pode alterar rapidamente.
 
 
 #agora utilizarei o agrupamento hierarquico, uma função que programa agrupamentos automaticos
@@ -65,3 +73,9 @@ xyplot(ADS~ CV,main = "After Clustering", type="p",group=groups,data=data, #dife
        auto.key=list(title="Group", space = "left", cex=1.0, just = 0.95), 
        par.settings = list(superpose.line=list(pch = 0:18, cex=1)), 
        col=c('blue','green','red'))
+
+#Resumo:
+#Pensando em uma cadeia de suprimentos seria possivel recomendar ações diferentes para cada grupo de skus a fim de garantir a máxima eficiência. 
+#Para os "horses" são esperadas altas vendas com baixa variação, então os beneficios de manter em estoque são altos.
+#Os "wild bulls" vale um tratamento mais personalizado de negócio, sendo poucos skus distintos 
+#Para os "Crickets" vale recomendar um estoque sob encomenda dos itens, a partir dos pedidos, pois apresentaram baixo numero de vendas.
