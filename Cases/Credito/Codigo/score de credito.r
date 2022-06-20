@@ -1,5 +1,6 @@
 #entendendo causa e consequencia
-#score de crédito: o que impulsiona o score de crédito?
+#Como selecionar os clientes que podem ou ser concedidos um empréstimo?
+#Uma forma seria medir o score de crédito dos clientes e a analise parte dessa ideia. Dessa forma, o que impulsiona o score de crédito?
 
 data=read.table('DATA_3.01_CREDIT.csv',sep=',',header=TRUE)
 
@@ -42,9 +43,10 @@ cor(data[,c(1:5,10)])
 #boa correlação entre renda e score de credito; estranho haver correlação negativa entre renda e educação
 
 #estimo uma regressão linear para o score de credito
+#vale ressaltar que uma regressão modela as relações entre causas potenciais (variáveis independentes) e um desfecho (variável dependente). Com o modelo, verificamos a correlação entre os dados modelados e os reais.
 linreg=lm(Rating~.,data=data)
 
-#para cada linha dotaset, o modelo de regressao linear estima o score de credito baseado nas outras variaveis e são chamadas de valores ajustados
+#para cada linha dataset, o modelo de regressao linear estima o score de credito baseado nas outras variaveis e são chamadas de "valores ajustados" ou "fitted values".
 
 #correlacao entre os valores do dataset e os valores do modelo
 cor(linreg$fitted.values,data$Rating)
@@ -55,7 +57,7 @@ cor(linreg$fitted.values,data$Rating)
 plot(data$Rating,linreg$fitted.values)
 #com o grafico fica mais facil visualizar que nos valores baixos de score de credito há maior dispersão
 
-#com um bom coeficiente de correlação, vemos a correlação entre as variaveis:
+#com um bom coeficiente de correlação e a regressão feita, vamos identificar a significancia estatistica das variaveis:
 summary(linreg)
 
 #Coefficients:
@@ -72,6 +74,8 @@ summary(linreg)
 #EthnicityCaucasian  -1.250612   3.533864  -0.354   0.7237    
 #Balance              0.231363   0.003661  63.189   <2e-16 ***
 
+#a significancia com comando summary com tres estrelas é muito significativa, duas estrelas significativa, uma estrela é fracamente significativa e nenhuma estrela não é uma variavel significativa.
+#uma observaçao pertinente, no contexto do bigdata, reforça a importancia de trablhar com uma amostra, porque a medida em que as variáveis aumentam todos os efeitos tendem a ser significativos 
 
 #qual a relação entre score de credito e a divida média do usuario?
 plot(data$Balance,data$Rating) 
