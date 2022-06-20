@@ -39,7 +39,7 @@ cor(predcreditscore,newdata$Rating)
 plot(newdata$Rating,predcreditscore)
 
 #em ambos os graficos que compara os dados do modelo e do dataset, é possivel observar que quanto mais baixo o score, menor a "acuracidade" do modelo;
-#a ideia é que conforme ha o incremento de dados, com novos clientes solicitando credito, e conforme também temos todas as outras variaveis preenchidas do dataset valores para todas as variáveis explicativas
+#a ideia é que conforme haver o incremento de dados, com novos clientes solicitando credito, e conforme também temos todas as outras variaveis preenchidas do dataset valores para todas as variáveis explicativas
 #podemos gerar um score e avaliar se faz ou não sentido conceder a eles um empréstimo, do ponto de vista de negócio/estratégia,
 #identificar candidatos que ainda não tem o score de crédito mas que podem vir a ser clientes ou mesmo o contrário, evitar conceder crédito a clientes com chances de não pagarem.
 
