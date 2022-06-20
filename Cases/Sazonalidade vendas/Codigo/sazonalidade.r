@@ -58,3 +58,6 @@ legend("topleft",c("Actual sales","Sales by the model"),lty=c(1,2),col=c('black'
 #o topleft indica que quero que a legenda esteja no canto direito superior do grafico
 #o c() para inserir o texto na legenda
 
+#Resumo:
+#ao verificar quais meses tem um efeito maior sobre as vendas, reduzimos uma incerteza de negócio de forma que pode ser recomendada ações mais eficientes em determinados períodos do ano, 
+#maximizar as vendas ao mesmo tempo reduzir o custo de gerenciamento dos estoques ao longo do ano, por exemplo.
