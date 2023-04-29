@@ -2,7 +2,7 @@
 Esse é um repositório os Cases de Business Analytics que fiz na parte prática do curso "Foundations of strategic Business Analytics" do Coursera (2022) utilizando a linguagem R 💻📚📈
 
 O objetivo foi fazer analises exploratórias com datasets disponibilizados no material do curso para responder questões relacionadas ao negócio como
-- Clusterizar os dados como clusterização de clientes e produtos utilizando funções do R.
+- Clusterização de clientes e produtos.
 - Calcular a correlaçao entre as variaveis numericas de datasets diferentes
 - Analisar sazonalidade de vendas.
 
